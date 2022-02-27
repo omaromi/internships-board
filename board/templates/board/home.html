@@ -1,0 +1,20 @@
+{% extends "board/base.html" %}
+{% block job_listings %}
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      {% for job in jobs %}
+        <div class="col">
+          <div class="card h-100">
+            <!-- <img src="..." class="card-img-top" alt="..."> -->
+            <div class="card-body">
+              <h5 class="card-title">{{ job.position }}</h5>
+              <p class="card-text">{{job.job_description }}</p>
+            </div>
+            <div class="card-footer">
+              <small class="text-muted">{{ job.company }}</small>
+            </div>
+          </div>
+        </div>
+        {% endfor %}  
+    </div>
+{% endblock job_listings %}

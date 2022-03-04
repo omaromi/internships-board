@@ -1,6 +1,7 @@
 from multiprocessing import context
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import Staff, Company,Internship
 
 # Create your views here.
 
@@ -45,6 +46,7 @@ jobs = [
 
 def home(request):
     context = {
-        'jobs': jobs,
+        'jobs': Internship.objects.all(),
+        'staff' : Staff.objects.all(),
     }
     return render(request, 'board/home.html', context)

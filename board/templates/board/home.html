@@ -7,11 +7,14 @@
           <div class="card h-100">
             <!-- <img src="..." class="card-img-top" alt="..."> -->
             <div class="card-body">
-              <h5 class="card-title">{{ job.position }}</h5>
-              <p class="card-text">{{job.job_description }}</p>
+              <h5 class="card-title">{{ job.position_title }}</h5>
+              <p class="card-text">{{job.app_link }}</p>
             </div>
             <div class="card-footer">
               <small class="text-muted">{{ job.company }}</small>
+            </div>
+            <div class="card-footer">
+              <small class="text-muted">{{ job.staff }}</small>
             </div>
           </div>
         </div>

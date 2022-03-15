@@ -6,16 +6,19 @@
         <div class="col">
           <div class="card h-100">
             <!-- <img src="..." class="card-img-top" alt="..."> -->
+            <div class="card-header">
+              <small class="text-muted">{{ job.company }}</small>
+            </div>
+            <a href="{{job.app_link }}" class="btn btn-outline-primary">Apply Here</a>
             <div class="card-body">
               <h5 class="card-title">{{ job.position_title }}</h5>
-              <p class="card-text">{{job.app_link }}</p>
-            </div>
-            <div class="card-footer">
-              <small class="text-muted">{{ job.company }}</small>
+              <a href="{{job.app_link }}" class="btn btn-outline-primary">Apply Here</a>
+              <p class="card-text">{{job.description }}</p>
             </div>
             <div class="card-footer">
               <small class="text-muted">{{ job.staff }}</small>
             </div>
+            
           </div>
         </div>
         {% endfor %}  

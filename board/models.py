@@ -24,5 +24,9 @@ class Internship(models.Model):
     position_title = models.CharField(max_length=200)
     date_posted = models.DateField(default=date.today)
     app_link= models.URLField()
+    description = models.TextField(blank=True)
     staff = models.ForeignKey(Staff, null=True, on_delete= models.SET_NULL)
     company = models.ForeignKey(Company, null=True, on_delete= models.SET_NULL)
+
+    def __str__(self):
+        return f'{self.company}-{self.position_title}-{self.date_posted}'

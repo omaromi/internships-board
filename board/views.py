@@ -1,8 +1,8 @@
 from multiprocessing import context
 from django.shortcuts import render
-from django.http import HttpResponse
-from .models import Staff, Company,Internship
-from .forms import IntUpload
+from django.http import HttpResponse, HttpResponseRedirect
+from .models import Staff, Company, Internship
+from .forms import InternshipForm
 
 # Create your views here.
 
@@ -13,17 +13,37 @@ def home(request):
     }
     return render(request, 'board/home.html', context)
 
-def upload(request):
-    form = IntUpload()
+# def upload(request):
+#     form = IntUpload()
 
+#     if request.method == 'POST':
+#         form  = IntUpload(request.Post)
+#         if form.is_valid():
+#             form.save()
+#         # print(request.POST)
+
+#     context = {
+#         'form':form,
+#     }
+    
+#     return render(request,'board/upload.html', context)
+
+def add_internship(request):
+    submitted = False
     if request.method == 'POST':
-        form  = IntUpload(request.Post)
+        form = InternshipForm(request.POST)
         if form.is_valid():
             form.save()
-        # print(request.POST)
+            return HttpResponseRedirect('/internshipform?submitted=True')
+    else:
+        form = InternshipForm
+        if 'submitted' in request.GET:
+            submitted = True
+
 
     context = {
-        'form':form,
-    }
-    
-    return render(request,'board/upload.html', context)
+        'form' : form,
+        'submitted' : submitted
+        }
+
+    return render(request, 'board/internshipform.html', context)

@@ -1,5 +1,5 @@
 {% extends "board/base.html" %}
-{% block job_listings %}
+{% block content %}
 
     <div class="row row-cols-1 row-cols-md-3 g-4">
       {% for job in jobs %}
@@ -23,4 +23,4 @@
         </div>
         {% endfor %}  
     </div>
-{% endblock job_listings %}
+{% endblock content %}

@@ -47,3 +47,10 @@ def add_internship(request):
         }
 
     return render(request, 'board/internshipform.html', context)
+
+def show_internship(request, internship_id):
+    internship = Internship.objects.get(pk=internship_id)
+    context = {
+        'internship': internship
+    }
+    return render(request, 'board/show_internship.html', context)

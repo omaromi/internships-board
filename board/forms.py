@@ -7,20 +7,20 @@ class InternshipForm(forms.ModelForm):
         fields = ('position_title','app_link','description', 'staff', 'company')
 
         labels = {
-            'position_title':'',
-            'app_link':'',
-            'description':'',
-            'staff':'',
-            'company':'',
+            'position_title':'Position Title',
+            'app_link':'Link to Apply',
+            'description':'Job Description',
+            'staff':'Assigned Staff Member',
+            'company':'Company',
 
         }
 
         widgets = {
             'position_title': forms.TextInput(attrs={'class':'form-control'}),
             'app_link': forms.TextInput(attrs={'class':'form-control'}),
-            'description': forms.TextInput(attrs={'class':'form-control'}),
-            'staff': forms.TextInput(attrs={'class':'form-control'}),
-            'company': forms.TextInput(attrs={'class':'form-control'}),
+            'description': forms.Textarea(attrs={'class':'form-control'}),
+            'staff': forms.Select(attrs={'class':'form-control'}),
+            'company': forms.Select(attrs={'class':'form-control'}),
         }
 
     # your_name = forms.CharField(label='Your name', max_length=100)

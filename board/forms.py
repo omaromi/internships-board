@@ -1,5 +1,5 @@
 from django import forms
-from .models import Internship
+from .models import Company, Internship
 
 class InternshipForm(forms.ModelForm):
     class Meta:
@@ -23,8 +23,7 @@ class InternshipForm(forms.ModelForm):
             'company': forms.Select(attrs={'class':'form-control'}),
         }
 
-    # your_name = forms.CharField(label='Your name', max_length=100)
-    # position_title = forms.CharField(max_length=200)
-    # # date_posted = forms.DateField(default=date.today)
-    # app_link= forms.URLField()
-    # description = forms.CharField(max_length=500)
+class CompanyForm(forms.ModelForm):
+    class Meta:
+        model = Company
+        fields = '__all__'

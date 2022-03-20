@@ -1,0 +1,24 @@
+{% extends "board/base.html" %}
+{% block content %}
+<h1>{{ staff.name }}'s Internships</h1>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  {% for internship in internships %}
+  <div class="col">
+    <div class="card h-100">
+      <div class="card-header">
+        <small class="text-muted">{{ internship.company }}</small>
+        <a href="{{internship.app_link }}" class="btn btn-outline-primary float-end">Apply Here</a>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{ internship.position_title }}</h5>
+        <a href="{% url 'show-internship' internship.id %}" class="btn btn-outline-secondary ">Learn More</a>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">{{ internship.staff }}</small>
+        <a href="{% url 'update-internship' internship.id %}" class="btn btn-outline-tertiary float-end">Edit Here</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}  
+</div>
+{% endblock content %}

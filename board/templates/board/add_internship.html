@@ -1,0 +1,20 @@
+{% extends "board/base.html" %}
+{% block content %}
+
+{% if submitted %}
+You added an internship successfully!
+<a href="{% url 'add-internship' %}" class="btn btn-outline-secondary">Add Another?</a>
+
+{% else %}
+<div class="container">
+  <form method=POST>
+    <div class="form-control">
+      {% csrf_token %}
+      {{form.as_table}}
+      <button type="submit" class="btn btn-outline-primary">Submit</button>
+    </div>
+  </form>
+</div>
+
+{% endif %}
+{% endblock content %}

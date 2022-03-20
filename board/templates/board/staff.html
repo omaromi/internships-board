@@ -1,0 +1,28 @@
+{% extends "board/base.html" %}
+{% block content %}
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      {% for member in staff %}
+        <div class="col">
+          <div class="card h-100">
+            <!-- <img src="..." class="card-img-top" alt="..."> -->
+            <!-- <div class="card-header">
+                <small class="text-muted">{{ member.email }}</small>
+            </div> -->
+            <div class="card-body">
+                <!-- I want to be able to click on the name here and list out all that staff's managed programs -->
+              
+              <h5 class="card-title">{{ member.name }} <span><a href="{% url 'staff-internships' member.id %}">{{ member.name }}'s Internships</a></span></h5>
+              <!-- <a></a> -->
+              <a href="mailto:{{ member.email }}" class="btn btn-outline-primary">{{ member.email }}</a>
+              <!-- <p class="card-text">{{ job.description }}</p> -->
+            </div>
+            <div class="card-footer">
+              <small class="text-muted">{{ member.position }}</small>
+            </div>
+            
+          </div>
+        </div>
+        {% endfor %}  
+    </div>
+{% endblock content %}

@@ -2,21 +2,19 @@
 {% block content %}
 
     <div class="row row-cols-1 row-cols-md-3 g-4">
-      {% for job in jobs %}
+      {% for internship in internships %}
         <div class="col">
           <div class="card h-100">
-            <!-- <img src="..." class="card-img-top" alt="..."> -->
             <div class="card-header">
-              <small class="text-muted">{{ job.company }}</small>
+              <small class="text-muted">{{ internship.company }}</small>
+              <a href="{{internship.app_link }}" class="btn btn-outline-primary float-end">Apply Here</a>
             </div>
-            <a href="{% url 'show-internship' job.id %}" class="btn btn-outline-primary">Learn More</a>
             <div class="card-body">
-              <h5 class="card-title">{{ job.position_title }}</h5>
-              <a href="{{job.app_link }}" class="btn btn-outline-primary">Apply Here</a>
-              <!-- <p class="card-text">{{ job.description }}</p> -->
+              <h5 class="card-title">{{ internship.position_title }}</h5>
+              <a href="{% url 'show-internship' internship.id %}" class="btn btn-outline-secondary ">Learn More</a>
             </div>
             <div class="card-footer">
-              <small class="text-muted">{{ job.staff }}</small>
+              <small class="text-muted">{{ internship.staff }}</small>
             </div>
             
           </div>

@@ -1,0 +1,14 @@
+{% extends "board/base.html" %}
+{% block content %}
+
+<h1>Updating Internship Here</h1>
+<div class="container">
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit" class="btn btn-outline-primary">Submit</button>
+    </form>
+</div>
+
+
+{% endblock content %}

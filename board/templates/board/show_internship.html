@@ -4,14 +4,12 @@
     <div class="row row-cols-1 row-cols-md-3 g-4">
         <div class="col">
           <div class="card h-100">
-            <!-- <img src="..." class="card-img-top" alt="..."> -->
             <div class="card-header">
               <small class="text-muted">{{ internship.company }}</small>
+              <a href="{{ internship.app_link }}" class="btn btn-outline-primary float-end">Apply Here</a>
             </div>
-            <!-- <a href="{{job.app_link }}" class="btn btn-outline-primary">Apply Here</a> -->
             <div class="card-body">
               <h5 class="card-title">{{ internship.position_title }}</h5>
-              <a href="{{ internship.app_link }}" class="btn btn-outline-primary">Apply Here</a>
               <p class="card-text">{{ internship.description }}</p>
             </div>
             <div class="card-footer">

@@ -15,7 +15,7 @@
       </div>
       <div class="card-footer">
         <small class="text-muted">{{ internship.staff }}</small>
-        <a href="{% url 'update-internship' internship.id %}" class="btn btn-outline-tertiary float-end">Edit Here</a>
+        {% if user.is_authenticated %}<a href="{% url 'update-internship' internship.id %}" class="btn btn-outline-tertiary float-end">Edit Here</a> {% endif %}
       </div>
     </div>
   </div>

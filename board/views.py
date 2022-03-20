@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import Staff, Company, Internship
 from .forms import InternshipForm, CompanyForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -13,6 +14,7 @@ def home(request):
     }
     return render(request, 'board/home.html', context)
 
+@login_required
 def add_internship(request):
     submitted = False
     if request.method == 'POST':
@@ -47,6 +49,7 @@ def staffmembers(request):
     }
     return render(request, 'board/staff.html', context)
 
+@login_required
 def add_company(request):
     submitted = False
     if request.method == 'POST':
@@ -77,6 +80,7 @@ def staff_internships(request, staff_id):
     }
     return render(request, 'board/staff_internships.html',context)
 
+@login_required
 def update_internship(request, internship_id):
     internship = Internship.objects.get(pk=internship_id)
     form = InternshipForm(request.POST or None, instance=internship)
